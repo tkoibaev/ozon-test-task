@@ -1,7 +1,7 @@
 .app {
   position: relative;
 
-  background-color: var(--content-background-color);
+  background-color: red;
 
   padding: 20px;
 }
