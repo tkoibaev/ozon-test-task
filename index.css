@@ -1,0 +1,51 @@
+@import './src/styles/app.css';
+@import './src/styles/progress.css';
+@import './src/styles/controllers.css';
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --body-background-color: #eaf0f6;
+  --content-background-color: #ffffff;
+  --brand-color: #005cff;
+  --text--color: #010101;
+
+  --border-radius-value: 16px;
+}
+
+@font-face {
+  font-family: 'Ozon Font';
+  src: url('./assets/font/gteestiprodisplay_regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Ozon Font', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+
+  background-color: var(--body-background-color);
+}
+
+input {
+  box-sizing: border-box;
+  font-family: 'Ozon Font', sans-serif;
+  font-size: 16px;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  display: none;
+}

@@ -1,0 +1,38 @@
+.progress__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress__container.hidden {
+  visibility: hidden;
+}
+
+.progress__container_svg {
+  transform: rotate(-90deg);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.progress__circle {
+  width: 120px;
+  height: 120px;
+  transition: stroke-dasharray 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform-origin: 50% 50%;
+}
+
+.progress__circle.animated {
+  animation: rotate 2s linear infinite;
+}
+
+.progress__circle.returning {
+  animation: resetRotate 0.5s ease forwards;
+}

@@ -1,0 +1,70 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.controller {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.controller__input {
+  width: 44px;
+  height: 28px;
+
+  padding: 13px 8px 8px;
+
+  border: 1px solid #000;
+  border-radius: var(--border-radius-value);
+
+  text-align: center;
+}
+
+.controller__title {
+  padding-top: 5px;
+}
+
+.controller__toggle_input {
+  display: none;
+}
+
+.controller__toggle_label {
+  width: 44px;
+  height: 28px;
+  position: relative;
+
+  background-color: var(--body-background-color);
+  border-radius: var(--border-radius-value);
+
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.controller__toggle_label::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-color: var(--content-background-color);
+  position: absolute;
+  border-radius: 100%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+.controller__toggle_input:checked + .controller__toggle_label:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.controller__toggle_input:checked + .controller__toggle_label {
+  background-color: var(--brand-color);
+}
+
+@media screen and (orientation: landscape) {
+  .controls {
+    padding-top: 5px;
+  }
+}

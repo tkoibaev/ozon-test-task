@@ -1,0 +1,37 @@
+.app {
+  position: relative;
+
+  background-color: var(--content-background-color);
+
+  padding: 20px;
+}
+
+.app__title {
+  position: absolute;
+  top: 25px;
+}
+
+.app__content {
+  padding: 79px 88px 80px;
+  display: flex;
+  gap: 86px;
+}
+
+@media screen and (orientation: portrait) {
+  .app {
+    width: 320px;
+    height: 568px;
+  }
+  .app__content {
+    padding: 85px 68px 117px;
+    flex-direction: column;
+    gap: 92px;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .app {
+    width: 568px;
+    height: 320px;
+  }
+}
