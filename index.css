@@ -2,6 +2,13 @@
 @import './src/styles/progress.css';
 @import './src/styles/controllers.css';
 
+@font-face {
+  font-family: 'Ozon Font';
+  src: url('./assets/font/gteestiprodisplay_regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -13,24 +20,26 @@
   --text--color: #010101;
 
   --border-radius-value: 16px;
-}
 
-@font-face {
-  font-family: 'Ozon Font';
-  src: url('./assets/font/gteestiprodisplay_regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+  --landscape-width: 568px;
+  --landscape-height: 320px;
+
+  --portrait-width: 320px;
+  --portrait-height: 568px;
 }
 
 body {
   font-family: 'Ozon Font', sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+  color: var(--text--color);
+  background-color: var(--body-background-color);
+
+  width: 100vw;
+  height: 100vh;
   margin: 0;
 
-  background-color: var(--body-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input {

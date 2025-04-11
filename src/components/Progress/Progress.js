@@ -1,6 +1,6 @@
 import { getTemplate } from './template.js';
 import { calculateStrokeDashArray } from './helpers/calculateStrokeDashArray.js';
-import { createResetRotate } from './helpers/createResetRotateKeyFrame.js';
+import { createResetRotate } from './helpers/createResetRotate.js';
 import {
   PROGRESS_RADIUS,
   INITIAL_PROGRESS_VALUE,
@@ -49,20 +49,20 @@ export class Progress {
    * @returns {void}
    */
   updateVisibility() {
-    const cont = document.getElementById('progress-container');
-    cont.classList.toggle('hidden');
+    const container = document.getElementById('progress-container');
+    container.classList.toggle('hidden');
   }
 
   /**
    * API-метод. Переключение анимации прогресс-бара
    * @returns {void}
    */
-  updateAnimation(boo) {
-    if (boo) {
+  updateAnimation(isAnimated) {
+    if (isAnimated) {
       this.#circle.classList.add('animated');
       this.#circle.classList.remove('returning');
     } else {
-      // Позволяет плавно сбрасывать анимацию - элемент "откатывается" в изначальное положение
+      // Позволяет плавно сбрасывать анимацию - элемент "откатывается" в изначальное положение (подробнее в ридми)
       this.#rotationStyle.textContent = createResetRotate(this.#circle);
       this.#circle.classList.remove('animated');
       this.#circle.classList.add('returning');

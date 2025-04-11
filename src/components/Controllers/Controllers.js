@@ -11,9 +11,9 @@ export class Controllers {
   #initialProgressValue;
 
   // Возможно стоит доставать элементы в нужных слушателях, а не выносить в поля класса?
-  inputElement;
-  animationSwitch;
-  visibilitySwitch;
+  #inputElement;
+  #animationSwitch;
+  #visibilitySwitch;
 
   /**
    *
@@ -36,18 +36,18 @@ export class Controllers {
    * @returns {void}
    */
   #validateInputValue() {
-    const value = this.inputElement.value;
+    const value = this.#inputElement.value;
 
     if (value.startsWith('0') && value.length > 1) {
-      this.inputElement.value = value.substring(1);
+      this.#inputElement.value = value.substring(1);
       return;
     }
     if (value > 100) {
-      this.inputElement.value = 100;
+      this.#inputElement.value = 100;
       return;
     }
     if (value < 0 || value.length === 0) {
-      this.inputElement.value = 0;
+      this.#inputElement.value = 0;
       return;
     }
   }
@@ -57,12 +57,12 @@ export class Controllers {
    * "прыгал" во время ввода
    */
   #listenValueInput() {
-    this.inputElement.addEventListener('input', (event) => {
+    this.#inputElement.addEventListener('input', (event) => {
       this.#validateInputValue();
       debounce(
         () =>
           this.#progressForControlling.updatePercentage(
-            this.inputElement.value
+            this.#inputElement.value
           ),
         200
       )();
@@ -73,7 +73,7 @@ export class Controllers {
    * Слушатель переключателя анимации
    */
   #listenAnimationToggle() {
-    this.animationSwitch.addEventListener('change', (event) => {
+    this.#animationSwitch.addEventListener('change', (event) => {
       this.#progressForControlling.updateAnimation(event.target.checked);
     });
   }
@@ -82,7 +82,7 @@ export class Controllers {
    * Слушатель переключателя видимости
    */
   #listenVisibilityToggle() {
-    this.visibilitySwitch.addEventListener('change', (event) => {
+    this.#visibilitySwitch.addEventListener('change', (event) => {
       this.#progressForControlling.updateVisibility(event.target.checked);
     });
   }
@@ -94,10 +94,10 @@ export class Controllers {
   }
 
   #setControlItems() {
-    this.inputElement = document.getElementById('input-value__text');
-    this.inputElement.value = this.#initialProgressValue;
-    this.animationSwitch = document.getElementById('id-animation-toggle');
-    this.visibilitySwitch = document.getElementById('id-visibility-toggle');
+    this.#inputElement = document.getElementById('input-value__text');
+    this.#inputElement.value = this.#initialProgressValue;
+    this.#animationSwitch = document.getElementById('id-animation-toggle');
+    this.#visibilitySwitch = document.getElementById('id-visibility-toggle');
   }
 
   /**
