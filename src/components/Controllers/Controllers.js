@@ -1,6 +1,5 @@
 import { getTemplate } from './template.js';
 import { debounce } from '../../utiles/debounce.js';
-import { INITIAL_PROGRESS_VALUE } from '../../utiles/consts.js';
 
 /**
  * Компонент для управления прогресс-баром

@@ -1,10 +1,7 @@
 import { getTemplate } from './template.js';
 import { calculateStrokeDashArray } from './helpers/calculateStrokeDashArray.js';
 import { createResetRotate } from './helpers/createResetRotate.js';
-import {
-  PROGRESS_RADIUS,
-  INITIAL_PROGRESS_VALUE,
-} from '../../utiles/consts.js';
+import { PROGRESS_RADIUS, INITIAL_PROGRESS_VALUE } from './helpers/consts.js';
 
 /**
  * Компонент прогресс-бар
@@ -23,7 +20,8 @@ export class Progress {
    *
    * @param {HTMLElement} parent - Родительский элемент для рендеринга компонента, в него будет
    * встраиваться компонент
-   * @param {number} initialValue - Начальное значение для отображения в прогресс-баре
+   * @param {number} initialValue - Начальное значение для отображения в прогресс-баре (по умолчанию
+   * INITIAL_PROGRESS_VALUE=0)
    */
   constructor(parent, initialValue = INITIAL_PROGRESS_VALUE) {
     this.#parent = parent;
@@ -49,12 +47,13 @@ export class Progress {
    * @returns {void}
    */
   updateVisibility() {
-    const container = document.getElementById('progress-container');
+    const container = document.getElementById('id-progress-container');
     container.classList.toggle('hidden');
   }
 
   /**
    * API-метод. Переключение анимации прогресс-бара
+   * @param {boolean} isAnimated - булевое значение для обозначения активности анимации
    * @returns {void}
    */
   updateAnimation(isAnimated) {
@@ -71,7 +70,7 @@ export class Progress {
 
   render() {
     this.#parent.innerHTML = getTemplate(this.#initialValue);
-    this.#circle = document.getElementById('circle');
+    this.#circle = document.getElementById('id-circle');
   }
 }
 

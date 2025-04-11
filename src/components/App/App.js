@@ -1,7 +1,6 @@
 import { getTemplate } from './template.js';
 import Progress from '../Progress/Progress.js';
 import { Controllers } from '../Controllers/Controllers.js';
-import { INITIAL_PROGRESS_VALUE } from '../../utiles/consts.js';
 
 /**
  * Компонент блока отображения и управления, контроллирует компонент отрисовки
@@ -15,10 +14,10 @@ export class App {
    * Создает экземпляр класса App.
    * @param {HTMLElement} parent - Родительский элемент для рендеринга компонента, в него будет
    * встраиваться App
-   * @param {number} [initialPercentValue=INITIAL_PROGRESS_VALUE] - Начальное значение прогресса (по умолчанию
-   * INITIAL_PROGRESS_VALUE=50)
+   * @param {number} initialPercentValue - Начальное значение прогресса (по умолчанию
+   * 0)
    */
-  constructor(parent, initialPercentValue = INITIAL_PROGRESS_VALUE) {
+  constructor(parent, initialPercentValue = 0) {
     this.#parent = parent;
     this.#initialPercentValue = initialPercentValue;
   }

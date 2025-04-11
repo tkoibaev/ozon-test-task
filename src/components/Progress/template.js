@@ -1,8 +1,8 @@
 import { calculateStrokeDashArray } from './helpers/calculateStrokeDashArray.js';
-import { PROGRESS_RADIUS } from '../../utiles/consts.js';
+import { PROGRESS_RADIUS } from './helpers/consts.js';
 export const getTemplate = (value) => {
   return `
-      <div class="progress__container" id="progress-container">
+      <div class="progress__container" id="id-progress-container">
         <svg class="progress__container_svg" width="120" height="120">
             <circle
             class="progress__circle background"
@@ -14,7 +14,7 @@ export const getTemplate = (value) => {
             fill="transparent"
             />  
             <circle
-            id="circle"
+            id="id-circle"
             class="progress__circle"
             stroke="#255AF1"
             stroke-width="10"

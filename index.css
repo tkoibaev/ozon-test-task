@@ -1,5 +1,5 @@
 @import './src/styles/app.css';
-@import './src/styles/progress.css';
+@import './src/components/Progress/progress.css';
 @import './src/styles/controllers.css';
 
 @font-face {
